@@ -12,8 +12,6 @@ Debian 9 (Stretch) Docker container for Ansible playbook and role testing.
 
   - `latest`: Latest stable version of Ansible.
 
-The latest tag is a lightweight image for basic validation of Ansible playbooks.
-
 ## How to Build
 
 This image is built on Docker Hub automatically any time the upstream OS container is rebuilt, and any time a commit is made or merged to the `master` branch. But if you need to build the image on your own locally, do the following:

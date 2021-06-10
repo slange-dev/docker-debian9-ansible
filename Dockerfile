@@ -18,6 +18,7 @@ RUN apt-get update \
 # Install Ansible via pip.
 RUN pip install $pip_packages
 
+# Initctl faker
 COPY initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl
 
@@ -28,5 +29,6 @@ RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 # Make sure systemd doesn't start agettys on tty[1-6].
 RUN rm -f /lib/systemd/system/multi-user.target.wants/getty.target
 
+# Add volume and systemd
 VOLUME ["/sys/fs/cgroup"]
 CMD ["/lib/systemd/systemd"]
